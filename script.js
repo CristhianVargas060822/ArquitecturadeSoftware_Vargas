@@ -1,32 +1,58 @@
-// Generar dinámicamente las unidades y semanas
-const contenedor = document.getElementById("contenedor-unidades");
+// Selección de elementos
+const semanas = document.querySelectorAll(".semana");
+const modal = document.getElementById("modal");
+const visor = document.getElementById("visor");
+const btnVer = document.getElementById("btn-ver");
+const btnDescargar = document.getElementById("btn-descargar");
+const cerrar = document.querySelector(".cerrar");
+const extraButtonsContainer = document.getElementById("extra-buttons");
 
-// Total de unidades y semanas
-const unidades = 4;
-const semanasPorUnidad = 4;
-
-let numeroSemana = 1; // contador global
-
-for (let u = 1; u <= unidades; u++) {
-  let unidadDiv = document.createElement("div");
-  unidadDiv.classList.add("unidad");
-  unidadDiv.setAttribute("id", "unidad" + u);
-
-  let tituloUnidad = document.createElement("h2");
-  tituloUnidad.textContent = "Unidad " + u;
-  unidadDiv.appendChild(tituloUnidad);
-
-  for (let s = 1; s <= semanasPorUnidad; s++) {
-    let semanaDiv = document.createElement("div");
-    semanaDiv.classList.add("semana");
-    semanaDiv.innerHTML = `
-      <h3>Semana ${numeroSemana}</h3>
-      <p>Aquí colocaré la descripción o enlace del trabajo de esta semana.</p>
-    `;
-    unidadDiv.appendChild(semanaDiv);
-
-    numeroSemana++; // aumentar el número de semana global
-  }
-
-  contenedor.appendChild(unidadDiv);
+// Función para abrir un archivo en el visor
+function abrirArchivo(archivo) {
+  visor.src = archivo;
+  btnVer.href = archivo;
+  btnDescargar.href = archivo;
 }
+
+// Abrir modal
+semanas.forEach(semana => {
+  semana.addEventListener("click", () => {
+    const archivosAttr = semana.getAttribute("data-files") || semana.getAttribute("data-file");
+    if (!archivosAttr) return;
+
+    const archivos = archivosAttr.split(",").map(a => a.trim());
+    abrirArchivo(archivos[0]); // abre el primero por defecto
+
+    // Si hay varios archivos, crear botones
+    extraButtonsContainer.innerHTML = "";
+    if (archivos.length > 1) {
+      archivos.forEach((archivo, i) => {
+        const btn = document.createElement("button");
+        // Mostrar nombre corto en el botón
+        btn.textContent = archivo.split("/").pop();
+        btn.addEventListener("click", () => abrirArchivo(archivo));
+        extraButtonsContainer.appendChild(btn);
+      });
+    }
+
+    modal.style.display = "flex";
+  });
+});
+
+// Cerrar modal
+cerrar.addEventListener("click", () => {
+  modal.style.display = "none";
+  visor.src = "";
+  extraButtonsContainer.innerHTML = "";
+});
+
+// Cerrar haciendo clic fuera del contenido
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    visor.src = "";
+    extraButtonsContainer.innerHTML = "";
+  }
+});
+
+
