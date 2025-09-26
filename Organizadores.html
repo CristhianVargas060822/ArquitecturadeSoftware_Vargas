@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor de PDF</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* 🔹 Contenedor PDF */
+    .pdf-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+
+    .pdf-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Visor de PDF</header>
+
+  <!-- 🔹 PDF -->
+  <div class="pdf-container">
+    <iframe src="Documentos/Actividad2.pdf"></iframe>
+  </div>
+
+</body>
+</html>

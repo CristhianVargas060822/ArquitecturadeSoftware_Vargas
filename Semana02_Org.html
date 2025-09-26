@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad 1</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* 🔹 Botones */
+    .btn {
+      position: absolute;
+      top: 15px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+      color: white;
+      z-index: 1000;
+    }
+
+    .download-btn {
+      right: 20px;
+      background-color: #007bff;
+    }
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .back-btn {
+      left: 20px;
+      background-color: #28a745;
+    }
+    .back-btn:hover {
+      background-color: #1e7e34;
+    }
+
+    .panzoom-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: grab;
+      background-color: #fff; 
+    }
+
+    .panzoom-container img {
+      width: 100%;             
+      height: auto;           
+      max-width: 2500px;     
+      max-height: 100vh;       
+      display: block;
+      object-fit: contain;      
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔹 Botón Volver -->
+  <button class="btn back-btn" id="backBtn">⬅ Volver</button>
+
+  <!-- 🔹 Botón Descargar -->
+  <button class="btn download-btn" id="downloadBtn">⬇ Descargar</button>
+
+  <!-- 🔹 Imagen con Panzoom -->
+  <div class="panzoom-container" id="panzoom-container">
+    <img id="mapaImg" src="Imagenes/Semana02MapaConceptual.png" alt="Mapa Conceptual TPS">
+  </div>
+
+  <!-- 📌 Panzoom -->
+  <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+  <script>
+    const elem = document.getElementById("panzoom-container");
+    const panzoom = Panzoom(elem, {
+      maxScale: 5,
+      minScale: 1,
+      step: 0.3,
+      contain: 'outside'
+    });
+
+    elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+    elem.addEventListener('dblclick', () => {
+      panzoom.reset();
+    });
+
+    // 📥 Descargar imagen
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const img = document.getElementById("mapaImg");
+      const link = document.createElement("a");
+      link.href = img.src;
+      link.download = "Mapa_Conceptual.png";
+      link.click();
+    });
+
+    // 🔙 Volver al index.html
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
