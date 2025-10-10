@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-page">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="logo.upla.png" alt="Logo" />
+      <span class="autor">Vargas Calixto Cristhian Alonso</span>
+    </div>
+    <div class="titulo-nav">Panel de Administración</div>
+    <div class="nav-right">
+      <button id="logout-btn" class="btn-login">Cerrar Sesión</button>
+    </div>
+  </nav>
+
+  <section class="content">
+    <h2>Subir PDF</h2>
+    <form id="upload-form">
+      <input type="text" id="nombre_pdf" placeholder="Nombre del PDF" required>
+      <input type="text" id="comentario" placeholder="Comentario (opcional)">
+      <select id="unidad" required>
+        <option value="">Selecciona Unidad</option>
+        <option value="1">Unidad 1</option>
+        <option value="2">Unidad 2</option>
+        <option value="3">Unidad 3</option>
+        <option value="4">Unidad 4</option>
+      </select>
+      <select id="semana" required>
+        <option value="">Selecciona Semana</option>
+        <option value="1">Semana 1</option>
+        <option value="2">Semana 2</option>
+        <option value="3">Semana 3</option>
+        <option value="4">Semana 4</option>
+      </select>
+      <input type="file" id="pdf_file" accept="application/pdf" required>
+      <button type="submit" class="btn-login">Subir PDF</button>
+    </form>
+
+    <h2>PDFs Subidos</h2>
+    <div id="pdf-list"></div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Vargas Calixto Cristhian Alonso</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
