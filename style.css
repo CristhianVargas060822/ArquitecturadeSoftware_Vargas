@@ -1,0 +1,565 @@
+/* ===== Fuente ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= Index Page ================= */
+body.index-page {
+  background: radial-gradient(circle at top, #141E30, #0f2027);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR Index */
+body.index-page .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(20,20,20,0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+body.index-page .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.index-page .nav-left img {
+  width: 50px;
+  height: 50px;
+}
+
+body.index-page .autor {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #00f7ff;
+}
+
+body.index-page .titulo-nav {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1de9b6;
+  text-align: center;
+  flex: 1;
+}
+
+body.index-page .nav-right button {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.index-page .nav-right button:hover {
+  background: linear-gradient(135deg, #00f7ff, #1de9b6);
+  transform: scale(1.05);
+}
+
+/* HERO */
+body.index-page .hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(0,198,255,0.2), rgba(0,247,255,0.2));
+  backdrop-filter: blur(8px);
+}
+
+body.index-page .hero-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+body.index-page .hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00f7ff;
+}
+
+body.index-page .hero p {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+/* UNIDADES / TARJETAS */
+body.index-page .content {
+  padding: 3rem 2rem;
+}
+
+body.index-page .unidad h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #1de9b6;
+  border-bottom: 2px solid #00f7ff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+body.index-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+body.index-page .card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+body.index-page .card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 247, 255, 0.4);
+}
+
+body.index-page .card h3 {
+  color: #00f7ff;
+  margin-bottom: 0.5rem;
+}
+
+body.index-page .card p {
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+body.index-page .card button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  margin: 0.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.index-page .btn-view {
+  background: #00c6ff;
+  color: #000;
+}
+
+body.index-page .btn-view:hover {
+  background: #00f7ff;
+}
+
+body.index-page .btn-download {
+  background: #1de9b6;
+  color: #000;
+}
+
+body.index-page .btn-download:hover {
+  background: #64ffda;
+}
+
+/* FOOTER */
+body.index-page .footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(20,20,20,0.8);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+body.index-page .footer a {
+  color: #00f7ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+body.index-page .footer a:hover {
+  color: #1de9b6;
+}
+
+/* ================= Login Page ================= */
+body.login-page {
+  background: radial-gradient(circle at top, #141E30, #0f2027);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body.login-page .login-container {
+  background: rgba(255,255,255,0.08);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+body.login-page .login-container h2 {
+  color: #00f7ff;
+  margin-bottom: 1.5rem;
+}
+
+body.login-page .login-container input {
+  width: 90%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.login-page .login-container button {
+  width: 95%;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.login-page .login-container button:hover {
+  background: linear-gradient(135deg, #00f7ff, #1de9b6);
+  transform: scale(1.05);
+}
+
+body.login-page #login-msg {
+  margin-top: 1rem;
+  color: #ff6e40;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ================= Admin Page ================= */
+body.admin-page {
+  background: radial-gradient(circle at top, #141E30, #0f2027);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Admin se mantiene igual que antes */
+body.admin-page #upload-form {
+  background: rgba(255,255,255,0.08);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+body.admin-page #upload-form input,
+body.admin-page #upload-form select,
+body.admin-page #upload-form button {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+body.admin-page #upload-form input,
+body.admin-page #upload-form select {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.admin-page #upload-form button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.admin-page #upload-form button:hover {
+  background: linear-gradient(135deg, #00f7ff, #1de9b6);
+  transform: scale(1.05);
+}
+
+body.admin-page #pdf-list {
+  display: grid;
+  gap: 1rem;
+}
+
+body.admin-page .semana-card {
+  background: rgba(255,255,255,0.08);
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+}
+
+body.admin-page .semana-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,247,255,0.3);
+}
+
+body.admin-page .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.admin-page .btn-ver, .btn-descargar, .btn-edit, .btn-delete {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+body.admin-page .btn-ver {
+  background: #00c6ff;
+  color: #000;
+}
+
+body.admin-page .btn-ver:hover {
+  background: #00f7ff;
+}
+
+body.admin-page .btn-descargar {
+  background: #1de9b6;
+  color: #000;
+}
+
+body.admin-page .btn-descargar:hover {
+  background: #64ffda;
+}
+
+body.admin-page .btn-edit {
+  background: #ffd600;
+  color: #000;
+}
+
+body.admin-page .btn-edit:hover {
+  background: #ffea00;
+}
+
+body.admin-page .btn-delete {
+  background: #ff3d00;
+  color: #fff;
+}
+
+body.admin-page .btn-delete:hover {
+  background: #ff6e40;
+}
+
+/* FOOTER para todas las páginas */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(20,20,20,0.8);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  margin-top: auto;
+  color: #00f7ff;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  .btn-group {
+    flex-direction: column;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .titulo-nav {
+    flex: unset;
+  }
+}
+
+/* ===== ADMIN PAGE ===== */
+body.admin-page {
+  background: radial-gradient(circle at top, #141E30, #0f2027);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+body.admin-page .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(20,20,20,0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+body.admin-page .nav-left img {
+  width: 40px;   /* logo más pequeño */
+  height: 40px;
+}
+
+body.admin-page .titulo-nav {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #1de9b6;
+  font-weight: bold;
+}
+
+/* FORMULARIO DE SUBIDA */
+body.admin-page #upload-form {
+  max-width: 700px;        /* ancho máximo */
+  margin: 2rem auto;       /* centrado */
+  padding: 2rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Inputs y botones */
+body.admin-page #upload-form input,
+body.admin-page #upload-form select,
+body.admin-page #upload-form button {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+body.admin-page #upload-form input,
+body.admin-page #upload-form select {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.admin-page #upload-form button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.admin-page #upload-form button:hover {
+  background: linear-gradient(135deg, #00f7ff, #1de9b6);
+  transform: scale(1.05);
+}
+
+/* LISTA DE PDFs */
+body.admin-page #pdf-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+/* Botón Cerrar Sesión en Admin */
+body.admin-page #logout-btn {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.admin-page #logout-btn:hover {
+  background: linear-gradient(135deg, #00f7ff, #1de9b6);
+  transform: scale(1.05);
+}
+
+/*NDEX.HTML*/
+/* Estilos para las semanas en el index */
+body.index-page #semanas-container {
+  margin-top: 2rem;
+}
+
+body.index-page #semanas-container h3 {
+  color: #00f7ff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+body.index-page .semanas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+body.index-page .semana-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+body.index-page .semana-card h4 {
+  color: #1de9b6;
+  margin-bottom: 0.5rem;
+}
+
+body.index-page .btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+body.index-page .btn-ver,
+body.index-page .btn-descargar {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.index-page .btn-ver {
+  background: #00c6ff;
+  color: #000;
+}
+
+body.index-page .btn-ver:hover {
+  background: #00f7ff;
+}
+
+body.index-page .btn-descargar {
+  background: #1de9b6;
+  color: #000;
+}
+
+body.index-page .btn-descargar:hover {
+  background: #64ffda;
+}
