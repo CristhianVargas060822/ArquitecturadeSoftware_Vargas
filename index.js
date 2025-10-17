@@ -7,7 +7,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "login.html";
   });
 
-  // ---- TARJETAS ----
+  // Inicializar Supabase (public key)
+  const supabaseUrl = 'https://pwptxavvhfkmyopswodw.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3cHR4YXZ2aGZrbXlvcHN3b2R3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAwMzQyMzgsImV4cCI6MjA3NTYxMDIzOH0.hCfjKOI7ViXQZMX4gm3omIGWkGDc1BGwDvmdzKuA42k';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  // ---- TARJETAS DE UNIDADES ----
   const cards = document.querySelectorAll(".card");
   let unidadAbierta = null;
 
@@ -15,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     card.addEventListener("click", async () => {
       const unidad = parseInt(card.getAttribute("data-unidad"));
 
-      // Si se vuelve a hacer clic en la misma, se cierra
+      // Si se vuelve a hacer clic en la misma tarjeta → colapsa
       if (unidadAbierta === unidad) {
         semanasContainer.innerHTML = "";
         unidadAbierta = null;
@@ -37,42 +42,43 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      // Agrupar PDFs por semana
-      const semanas = [1, 2, 3, 4].map(s => {
-        const pdfsSemana = trabajos.filter(t => t.semana === s);
-
+      // ---- Generar HTML por semana ----
+      const semanasHTML = [1, 2, 3, 4].map(semana => {
+        const pdfsSemana = trabajos.filter(t => t.semana === semana);
         const pdfsHTML = pdfsSemana.length
           ? pdfsSemana
               .map(
                 pdf => `
-            <div class="pdf-item">
-              <strong>${pdf.nombre_pdf}</strong>
-              <p>${pdf.comentario || ""}</p>
-              <div class="btn-group">
-                <button class="btn-ver" onclick="window.open('${pdf.url_pdf}', '_blank')">Ver PDF</button>
-                <button class="btn-descargar" onclick="window.location.href='${pdf.url_pdf}'">Descargar</button>
-              </div>
-            </div>
-          `
+                <div class="pdf-item">
+                  <strong>${pdf.nombre_pdf}</strong>
+                  <p>${pdf.comentario || ""}</p>
+                  <div class="btn-group">
+                    <button class="btn-ver" onclick="window.open('${pdf.url_pdf}', '_blank')">Ver PDF</button>
+                    <button class="btn-descargar" onclick="window.location.href='${pdf.url_pdf}'">Descargar</button>
+                  </div>
+                </div>
+              `
               )
               .join("")
           : "<p>No hay PDFs disponibles</p>";
 
         return `
           <div class="semana-card">
-            <h4>Semana ${s}</h4>
+            <h4>Semana ${semana}</h4>
             ${pdfsHTML}
           </div>
         `;
       });
 
-      // Renderizar todo en el contenedor
+      // ---- Renderizar semanas en el contenedor ----
       semanasContainer.innerHTML = `
         <h3>Unidad ${unidad} - Semanas</h3>
         <div class="semanas-grid">
-          ${semanas.join("")}
+          ${semanasHTML.join("")}
         </div>
       `;
     });
   });
 });
+
+
